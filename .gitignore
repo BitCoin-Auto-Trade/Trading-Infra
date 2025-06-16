@@ -1,0 +1,21 @@
+# Terraform 관련
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# macOS
+.DS_Store
+
+# SSH 키 (혹시 실수로 넣는 경우 대비)
+*.pem
+*.pub
+*.key
+id_rsa*
+id_ed25519*
