@@ -13,21 +13,11 @@ resource "aws_instance" "airflow_server" {
     #!/bin/bash
     set -eux
 
-    # 기본 업데이트
     apt-get update -y
-    apt-get install -y software-properties-common
 
-    # python3.12 + venv + pip 설치
-    apt-get install -y python3.12 python3.12-venv python3-pip
-
-    # python3, pip 기본 명령어에 연결
-    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
-    update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
-
-    # docker + git + curl
+    # 필수 패키지만 설치
     apt-get install -y docker.io git curl
 
-    # docker 설정
     systemctl start docker
     systemctl enable docker
     usermod -aG docker ubuntu
