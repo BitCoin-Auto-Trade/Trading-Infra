@@ -17,10 +17,10 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_subnet" "public_subnet" {
-  vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = "10.0.1.0/24"
+  vpc_id                  = aws_vpc.main_vpc.id
+  cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = true
-  availability_zone = "ap-northeast-2a"
+  availability_zone       = "ap-northeast-2a"
 
   tags = {
     Name = "${var.project_tag}-public-subnet"
@@ -42,5 +42,10 @@ resource "aws_route_table" "public_rt" {
 
 resource "aws_route_table_association" "public_rt_assoc" {
   subnet_id      = aws_subnet.public_subnet.id
+  route_table_id = aws_route_table.public_rt.id
+}
+
+resource "aws_main_route_table_association" "main_rt_assoc" {
+  vpc_id         = aws_vpc.main_vpc.id
   route_table_id = aws_route_table.public_rt.id
 }
