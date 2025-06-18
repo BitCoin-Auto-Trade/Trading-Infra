@@ -5,6 +5,11 @@ resource "aws_instance" "db_server" {
   key_name      = var.key_pair_name
   vpc_security_group_ids = [aws_security_group.db_sg.id]
 
+  root_block_device {
+    volume_size = 8
+    volume_type = "gp3"
+  }
+
   tags = {
     Name = "${var.project_tag}-db-server"
   }

@@ -48,7 +48,6 @@ resource "aws_security_group" "airflow_sg" {
   }
 }
 
-# airflow → db(Postgres)
 resource "aws_security_group_rule" "db_postgres_from_airflow" {
   type                     = "ingress"
   from_port                = 5432
@@ -59,7 +58,6 @@ resource "aws_security_group_rule" "db_postgres_from_airflow" {
   description              = "Postgres from Airflow SG"
 }
 
-# airflow → redis
 resource "aws_security_group_rule" "db_redis_from_airflow" {
   type                     = "ingress"
   from_port                = 6379
