@@ -6,7 +6,7 @@ resource "aws_instance" "db_server" {
   vpc_security_group_ids = [aws_security_group.db_sg.id]
 
   root_block_device {
-    volume_size = 8
+    volume_size = 12
     volume_type = "gp3"
   }
 

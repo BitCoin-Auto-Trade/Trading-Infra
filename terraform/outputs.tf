@@ -1,6 +1,6 @@
-output "airflow_instance_id" {
-  description = "EC2 instance ID for Airflow"
-  value       = aws_instance.airflow_server.id
+output "getbitcoin_instance_id" {
+  description = "EC2 instance ID for getbitcoin"
+  value       = aws_instance.getbitcoin_server.id
 }
 
 output "db_instance_id" {
@@ -8,9 +8,9 @@ output "db_instance_id" {
   value       = aws_instance.db_server.id
 }
 
-output "airflow_public_ip" {
-  description = "Elastic IP for Airflow server"
-  value       = aws_eip.airflow_eip.public_ip
+output "getbitcoin_public_ip" {
+  description = "Elastic IP for getbitcoin server"
+  value       = aws_eip.getbitcoin_eip.public_ip
 }
 
 output "db_public_ip" {
